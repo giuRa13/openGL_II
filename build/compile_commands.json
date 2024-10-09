@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/main.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/main.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/main.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/my_opengl_project.dir/src/glad.c.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/glad.c",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/glad.c"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp"
+}
+]

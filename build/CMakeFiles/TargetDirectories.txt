@@ -1,0 +1,3 @@
+/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles/my_opengl_project.dir
+/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles/edit_cache.dir
+/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,5 @@
+# ninja log v5
+1	369	1728516788984271345	CMakeFiles/my_opengl_project.dir/src/glad.c.o	eac75f8b479fa8da
+1	412	1728516789027271608	CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o	aa9329dc287b5a7a
+0	440	1728516789056271785	CMakeFiles/my_opengl_project.dir/src/main.cpp.o	7f17b5a8949d5df3
+440	507	1728516789122272189	my_opengl_project	a6120f11bd270cc0
