@@ -8,5 +8,7 @@ public:
     ~TriangleMesh();
 
 private:
-    unsigned int VBO, VAO, vertex_count;
+    //EBO --> VBO without duplicate
+    unsigned int EBO, VAO, vertex_count;
+    std::vector<unsigned int> VBOs;
 };

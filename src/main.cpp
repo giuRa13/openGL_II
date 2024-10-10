@@ -27,6 +27,9 @@ int main(int, char**)
 
 
     glClearColor(0.25f, 0.5f, 0.75f, 1.0f);
+    int w, h;
+    glfwGetFramebufferSize(window, &w, &h);
+    glViewport(0, 0, w, h);
 
     TriangleMesh* triangle = new TriangleMesh();
 
