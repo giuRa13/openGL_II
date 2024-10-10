@@ -1,5 +1,6 @@
 #include "config.hpp"
 #include "triangle_mesh.hpp"
+#include "material.hpp"
 
 
 unsigned int make_shader(const std::string& vertex_filepath, const std::string& fragment_filepath);
@@ -33,10 +34,20 @@ int main(int, char**)
 
     TriangleMesh* triangle = new TriangleMesh();
 
+    Material* material = new Material("../img/pixelarttown.jpg");
+    Material* mask = new Material("../img/vignette.jpg");
+    
     unsigned int shader = make_shader(
         "../src/shaders/vertex.txt",
         "../src/shaders/fragment.txt"
     );
+
+    //set textures unit(witch is 0, which is 1)
+    glUseProgram(shader);
+    glUniform1i(glGetUniformLocation(shader, "material"), 0);
+    glUniform1i(glGetUniformLocation(shader, "mask"), 1);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
     while(!glfwWindowShouldClose(window))
@@ -45,12 +56,20 @@ int main(int, char**)
 
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shader);
+        material->use(0);
+        mask->use(1);
         triangle->draw();
 
         glfwSwapBuffers(window);
     }
 
+
     glDeleteProgram(shader);
+
+    delete triangle;
+    delete material;
+    delete mask;
+
     glfwTerminate();
     return 0;
 }

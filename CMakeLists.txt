@@ -6,10 +6,12 @@ find_package(OpenGL REQUIRED)
 
 add_executable(my_opengl_project 
     src/config.hpp 
+    src/config.cpp
     src/main.cpp 
     src/glad.c 
     src/triangle_mesh.hpp
-    src/triangle_mesh.cpp)
+    src/triangle_mesh.cpp
+    src/material.cpp)
 
 target_link_libraries(my_opengl_project 
     glfw 
