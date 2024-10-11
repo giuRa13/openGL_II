@@ -111,41 +111,86 @@ CMakeFiles/my_opengl_project.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/my_opengl_project.dir/src/glad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/glad.c -o CMakeFiles/my_opengl_project.dir/src/glad.c.s
 
-CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
-CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.cpp
-CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp
+CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
+CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o: ../src/systems/camera_system.cpp
+CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/camera_system.cpp
 
-CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp > CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.i
+CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/camera_system.cpp > CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.i
 
-CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp -o CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.s
+CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/camera_system.cpp -o CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.s
 
-CMakeFiles/my_opengl_project.dir/src/material.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
-CMakeFiles/my_opengl_project.dir/src/material.cpp.o: ../src/material.cpp
-CMakeFiles/my_opengl_project.dir/src/material.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_opengl_project.dir/src/material.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/material.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/material.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/material.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/material.cpp
+CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
+CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o: ../src/systems/motion_system.cpp
+CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/motion_system.cpp
 
-CMakeFiles/my_opengl_project.dir/src/material.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/material.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/material.cpp > CMakeFiles/my_opengl_project.dir/src/material.cpp.i
+CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/motion_system.cpp > CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.i
 
-CMakeFiles/my_opengl_project.dir/src/material.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/material.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/material.cpp -o CMakeFiles/my_opengl_project.dir/src/material.cpp.s
+CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/motion_system.cpp -o CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.s
+
+CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
+CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o: ../src/systems/render_system.cpp
+CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/render_system.cpp
+
+CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/render_system.cpp > CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.i
+
+CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/render_system.cpp -o CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.s
+
+CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
+CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o: ../src/view/shader.cpp
+CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp
+
+CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp > CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.i
+
+CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp -o CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.s
+
+CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o: CMakeFiles/my_opengl_project.dir/flags.make
+CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o: ../src/controller/app.cpp
+CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o: CMakeFiles/my_opengl_project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o -MF CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o.d -o CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp
+
+CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp > CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.i
+
+CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp -o CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s
 
 # Object files for target my_opengl_project
 my_opengl_project_OBJECTS = \
 "CMakeFiles/my_opengl_project.dir/src/config.cpp.o" \
 "CMakeFiles/my_opengl_project.dir/src/main.cpp.o" \
 "CMakeFiles/my_opengl_project.dir/src/glad.c.o" \
-"CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o" \
-"CMakeFiles/my_opengl_project.dir/src/material.cpp.o"
+"CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o" \
+"CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o" \
+"CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o" \
+"CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o" \
+"CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o"
 
 # External object files for target my_opengl_project
 my_opengl_project_EXTERNAL_OBJECTS =
@@ -153,13 +198,16 @@ my_opengl_project_EXTERNAL_OBJECTS =
 my_opengl_project: CMakeFiles/my_opengl_project.dir/src/config.cpp.o
 my_opengl_project: CMakeFiles/my_opengl_project.dir/src/main.cpp.o
 my_opengl_project: CMakeFiles/my_opengl_project.dir/src/glad.c.o
-my_opengl_project: CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o
-my_opengl_project: CMakeFiles/my_opengl_project.dir/src/material.cpp.o
+my_opengl_project: CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o
+my_opengl_project: CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o
+my_opengl_project: CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o
+my_opengl_project: CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o
+my_opengl_project: CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o
 my_opengl_project: CMakeFiles/my_opengl_project.dir/build.make
 my_opengl_project: /usr/lib/x86_64-linux-gnu/libGLX.so
 my_opengl_project: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 my_opengl_project: CMakeFiles/my_opengl_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable my_opengl_project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/giuli/Desktop/openGL_engine/openGL_II/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable my_opengl_project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/my_opengl_project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

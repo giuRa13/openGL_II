@@ -153,6 +153,30 @@ src/config.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/config.cpp.s
 .PHONY : src/config.cpp.s
 
+src/controller/app.o: src/controller/app.cpp.o
+.PHONY : src/controller/app.o
+
+# target to build an object file
+src/controller/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o
+.PHONY : src/controller/app.cpp.o
+
+src/controller/app.i: src/controller/app.cpp.i
+.PHONY : src/controller/app.i
+
+# target to preprocess a source file
+src/controller/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.i
+.PHONY : src/controller/app.cpp.i
+
+src/controller/app.s: src/controller/app.cpp.s
+.PHONY : src/controller/app.s
+
+# target to generate assembly for a file
+src/controller/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s
+.PHONY : src/controller/app.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -201,53 +225,101 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/material.o: src/material.cpp.o
-.PHONY : src/material.o
+src/systems/camera_system.o: src/systems/camera_system.cpp.o
+.PHONY : src/systems/camera_system.o
 
 # target to build an object file
-src/material.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/material.cpp.o
-.PHONY : src/material.cpp.o
+src/systems/camera_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o
+.PHONY : src/systems/camera_system.cpp.o
 
-src/material.i: src/material.cpp.i
-.PHONY : src/material.i
+src/systems/camera_system.i: src/systems/camera_system.cpp.i
+.PHONY : src/systems/camera_system.i
 
 # target to preprocess a source file
-src/material.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/material.cpp.i
-.PHONY : src/material.cpp.i
+src/systems/camera_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.i
+.PHONY : src/systems/camera_system.cpp.i
 
-src/material.s: src/material.cpp.s
-.PHONY : src/material.s
+src/systems/camera_system.s: src/systems/camera_system.cpp.s
+.PHONY : src/systems/camera_system.s
 
 # target to generate assembly for a file
-src/material.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/material.cpp.s
-.PHONY : src/material.cpp.s
+src/systems/camera_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.s
+.PHONY : src/systems/camera_system.cpp.s
 
-src/triangle_mesh.o: src/triangle_mesh.cpp.o
-.PHONY : src/triangle_mesh.o
+src/systems/motion_system.o: src/systems/motion_system.cpp.o
+.PHONY : src/systems/motion_system.o
 
 # target to build an object file
-src/triangle_mesh.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o
-.PHONY : src/triangle_mesh.cpp.o
+src/systems/motion_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o
+.PHONY : src/systems/motion_system.cpp.o
 
-src/triangle_mesh.i: src/triangle_mesh.cpp.i
-.PHONY : src/triangle_mesh.i
+src/systems/motion_system.i: src/systems/motion_system.cpp.i
+.PHONY : src/systems/motion_system.i
 
 # target to preprocess a source file
-src/triangle_mesh.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.i
-.PHONY : src/triangle_mesh.cpp.i
+src/systems/motion_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.i
+.PHONY : src/systems/motion_system.cpp.i
 
-src/triangle_mesh.s: src/triangle_mesh.cpp.s
-.PHONY : src/triangle_mesh.s
+src/systems/motion_system.s: src/systems/motion_system.cpp.s
+.PHONY : src/systems/motion_system.s
 
 # target to generate assembly for a file
-src/triangle_mesh.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.s
-.PHONY : src/triangle_mesh.cpp.s
+src/systems/motion_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.s
+.PHONY : src/systems/motion_system.cpp.s
+
+src/systems/render_system.o: src/systems/render_system.cpp.o
+.PHONY : src/systems/render_system.o
+
+# target to build an object file
+src/systems/render_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o
+.PHONY : src/systems/render_system.cpp.o
+
+src/systems/render_system.i: src/systems/render_system.cpp.i
+.PHONY : src/systems/render_system.i
+
+# target to preprocess a source file
+src/systems/render_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.i
+.PHONY : src/systems/render_system.cpp.i
+
+src/systems/render_system.s: src/systems/render_system.cpp.s
+.PHONY : src/systems/render_system.s
+
+# target to generate assembly for a file
+src/systems/render_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.s
+.PHONY : src/systems/render_system.cpp.s
+
+src/view/shader.o: src/view/shader.cpp.o
+.PHONY : src/view/shader.o
+
+# target to build an object file
+src/view/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o
+.PHONY : src/view/shader.cpp.o
+
+src/view/shader.i: src/view/shader.cpp.i
+.PHONY : src/view/shader.i
+
+# target to preprocess a source file
+src/view/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.i
+.PHONY : src/view/shader.cpp.i
+
+src/view/shader.s: src/view/shader.cpp.s
+.PHONY : src/view/shader.s
+
+# target to generate assembly for a file
+src/view/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.s
+.PHONY : src/view/shader.cpp.s
 
 # Help Target
 help:
@@ -261,18 +333,27 @@ help:
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
+	@echo "... src/controller/app.o"
+	@echo "... src/controller/app.i"
+	@echo "... src/controller/app.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/material.o"
-	@echo "... src/material.i"
-	@echo "... src/material.s"
-	@echo "... src/triangle_mesh.o"
-	@echo "... src/triangle_mesh.i"
-	@echo "... src/triangle_mesh.s"
+	@echo "... src/systems/camera_system.o"
+	@echo "... src/systems/camera_system.i"
+	@echo "... src/systems/camera_system.s"
+	@echo "... src/systems/motion_system.o"
+	@echo "... src/systems/motion_system.i"
+	@echo "... src/systems/motion_system.s"
+	@echo "... src/systems/render_system.o"
+	@echo "... src/systems/render_system.i"
+	@echo "... src/systems/render_system.s"
+	@echo "... src/view/shader.o"
+	@echo "... src/view/shader.i"
+	@echo "... src/view/shader.s"
 .PHONY : help
 
 

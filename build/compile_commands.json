@@ -16,12 +16,27 @@
 },
 {
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp",
-  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/triangle_mesh.cpp"
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/camera_system.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/systems/camera_system.cpp"
 },
 {
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/material.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/material.cpp",
-  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/material.cpp"
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/motion_system.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/systems/motion_system.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/render_system.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/systems/render_system.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp"
 }
 ]
