@@ -9,9 +9,10 @@ add_executable(my_opengl_project
     src/config.cpp
     src/main.cpp 
     src/glad.c 
-    src/triangle_mesh.hpp
     src/triangle_mesh.cpp
-    src/material.cpp)
+    src/material.cpp
+    #src/linear_algebra.cpp
+    )
 
 target_link_libraries(my_opengl_project 
     glfw 

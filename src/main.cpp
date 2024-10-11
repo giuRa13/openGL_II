@@ -1,6 +1,7 @@
 #include "config.hpp"
 #include "triangle_mesh.hpp"
 #include "material.hpp"
+//#include "linear_algebra.hpp"
 
 
 unsigned int make_shader(const std::string& vertex_filepath, const std::string& fragment_filepath);
@@ -34,7 +35,7 @@ int main(int, char**)
 
     TriangleMesh* triangle = new TriangleMesh();
 
-    Material* material = new Material("../img/pixelarttown.jpg");
+    Material* material = new Material("../img/areYou.png");
     Material* mask = new Material("../img/vignette.jpg");
     
     unsigned int shader = make_shader(
@@ -46,13 +47,48 @@ int main(int, char**)
     glUseProgram(shader);
     glUniform1i(glGetUniformLocation(shader, "material"), 0);
     glUniform1i(glGetUniformLocation(shader, "mask"), 1);
+    //configure Alpha blend
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+    //mat4 model = create_matrix_transform(quad_position);
+    //vec3 quad_position = {-0.2f, 0.4f, 0.0f};
+    glm::vec3 quad_position = {-0.2f, 0.4f, 0.0f};
+    //vec3 camera_pos = {-4.0f, 0.0f, 3.0f};
+    glm::vec3 camera_pos = {-4.0f, 0.0f, 3.0f};
+    //vec3 camera_target = {0.0f, 0.0f, 0.0f};
+    glm::vec3 camera_target = {0.0f, 0.0f, 0.0f};
+    glm::vec3 up = {0.0f, 0.0f, 1.0f};
+    
+    //put in memory
+    unsigned int model_location = glGetUniformLocation(shader, "model");
+    unsigned int view_location = glGetUniformLocation(shader, "view");
+    unsigned int proj_location = glGetUniformLocation(shader, "projection");
+    //glUniformMatrix4fv(model_location, 1, GL_FALSE, model.entries);
+
+    //mat4 view = create_look_at(camera_pos, camera_target);
+    //glUniformMatrix4fv(proj_location, 1, GL_FALSE, projection.entries);
+    glm::mat4 view = glm::lookAt(camera_pos, camera_target, up);
+    glUniformMatrix4fv(view_location, 1, GL_FALSE, glm::value_ptr(view));
+
+    //mat4 projection = create_perspective_projection(45.0f, 640.0f/480.0f, 0.1f, 10.0f);
+    //glUniformMatrix4fv(proj_location, 1, GL_FALSE, projection.entries);
+    glm::mat4 projection = glm::perspective(45.0f, 640.0f/480.0f, 0.1f, 10.0f);
+    glUniformMatrix4fv(proj_location, 1, GL_FALSE, glm::value_ptr(projection));
+    
 
 
     while(!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
+
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, quad_position);
+        model = glm::rotate(model, (float)glfwGetTime(), {0.0f, 0.0f, 1.0f}); // model, angle, axis to rotate around  
+        glUniformMatrix4fv(model_location, 1, GL_FALSE, glm::value_ptr(model));
+        //mat4 model = create_model_transform(quad_position, 10 * glfwGetTime());
+        //glUniformMatrix4fv(model_location, 1, GL_FALSE, model.entries);
 
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shader);

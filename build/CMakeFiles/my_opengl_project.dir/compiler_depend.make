@@ -255,6 +255,58 @@ CMakeFiles/my_opengl_project.dir/src/config.cpp.o: ../src/config.cpp \
   /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/integer.hpp \
   /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/glm/gtc/type_ptr.inl \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -374,8 +426,6 @@ CMakeFiles/my_opengl_project.dir/src/config.cpp.o: ../src/config.cpp \
   /usr/include/c++/11/bits/vector.tcc \
   ../src/stb_image.h \
   /usr/include/c++/11/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
   /usr/include/c++/11/math.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/emmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h \
@@ -636,6 +686,58 @@ CMakeFiles/my_opengl_project.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/integer.hpp \
   /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/glm/gtc/type_ptr.inl \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1011,6 +1113,58 @@ CMakeFiles/my_opengl_project.dir/src/material.cpp.o: ../src/material.cpp \
   /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/integer.hpp \
   /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/glm/gtc/type_ptr.inl \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1386,6 +1540,58 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
   /usr/include/glm/detail/type_half.inl \
   /usr/include/glm/integer.hpp \
   /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/glm/gtc/type_ptr.inl \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1511,8 +1717,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 ../src/material.hpp:
 
-../src/main.cpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/xmmintrin.h:
@@ -1549,10 +1753,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/basic_ios.h:
 
-/usr/include/string.h:
-
-/usr/include/c++/11/bits/streambuf.tcc:
-
 /usr/include/c++/11/streambuf:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/mm_malloc.h:
@@ -1575,10 +1775,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/errno.h:
 
-/usr/include/c++/11/cerrno:
-
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/stdio.h:
@@ -1589,23 +1785,15 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/functional_hash.h:
 
-/usr/include/c++/11/bits/cxxabi_forced.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/c++/11/bits/ostream_insert.h:
-
-/usr/include/c++/11/ext/new_allocator.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/11/bits/locale_facets.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
@@ -1620,8 +1808,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/asm-generic/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/pthread.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
 
@@ -1669,6 +1855,78 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/memoryfwd.h:
 
+/usr/include/c++/11/bits/stringfwd.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/ios:
+
+/usr/include/c++/11/ostream:
+
+/usr/include/c++/11/bits/streambuf.tcc:
+
+/usr/include/string.h:
+
+/usr/include/glm/ext/vector_uint1.hpp:
+
+../src/main.cpp:
+
+/usr/include/glm/ext/vector_int1_sized.hpp:
+
+/usr/include/glm/ext/vector_int1.hpp:
+
+/usr/include/c++/11/cerrno:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/glm/ext/vector_float1_precision.hpp:
+
+/usr/include/glm/ext/vector_float1.hpp:
+
+/usr/include/glm/ext/vector_bool1_precision.hpp:
+
+/usr/include/glm/ext/vector_bool1.hpp:
+
+/usr/include/c++/11/bits/cxxabi_forced.h:
+
+/usr/include/glm/gtc/vec1.hpp:
+
+/usr/include/glm/gtc/epsilon.inl:
+
+/usr/include/pthread.h:
+
+/usr/include/glm/gtc/quaternion.inl:
+
+/usr/include/glm/ext/quaternion_transform.inl:
+
+/usr/include/glm/ext/quaternion_trigonometric.inl:
+
+/usr/include/glm/ext/quaternion_trigonometric.hpp:
+
+/usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/glm/ext/quaternion_double_precision.hpp:
+
+/usr/include/glm/ext/quaternion_double.hpp:
+
+/usr/include/glm/ext/quaternion_relational.inl:
+
+/usr/include/c++/11/ext/new_allocator.h:
+
+/usr/include/glm/detail/type_quat.hpp:
+
+/usr/include/glm/ext/quaternion_geometric.inl:
+
+/usr/include/glm/ext/vector_relational.inl:
+
+/usr/include/glm/gtc/type_ptr.hpp:
+
+/usr/include/glm/ext/matrix_transform.hpp:
+
+/usr/include/glm/ext/matrix_projection.inl:
+
 /usr/include/glm/fwd.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
@@ -1695,6 +1953,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/climits:
 
+/usr/include/glm/ext/matrix_clip_space.inl:
+
 /usr/include/glm/detail/setup.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
@@ -1719,6 +1979,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
+/usr/include/glm/detail/type_float.hpp:
+
 /usr/include/glm/vector_relational.hpp:
 
 /usr/include/c++/11/bits/nested_exception.h:
@@ -1735,15 +1997,11 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/stl_pair.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
 /usr/include/c++/11/bits/basic_string.h:
 
 /usr/include/linux/limits.h:
 
 /usr/include/c++/11/bits/specfun.h:
-
-/usr/include/glm/simd/platform.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
@@ -1799,6 +2057,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/cmath:
 
+/usr/include/glm/ext/quaternion_float.hpp:
+
 /usr/include/glm/mat4x4.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
@@ -1829,7 +2089,11 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
+/usr/include/glm/gtc/type_ptr.inl:
+
 /usr/include/glm/ext/matrix_double4x2.hpp:
+
+/usr/include/glm/gtc/quaternion.hpp:
 
 /usr/include/c++/11/bits/functexcept.h:
 
@@ -1839,6 +2103,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/detail/type_vec3.hpp:
 
+/usr/include/glm/ext/quaternion_transform.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
 /usr/include/glm/exponential.hpp:
@@ -1847,6 +2113,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
+/usr/include/glm/gtc/constants.inl:
+
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/glm/ext/vector_bool3_precision.hpp:
@@ -1854,6 +2122,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/glm/ext/matrix_double2x2.hpp:
 
 /usr/include/glm/detail/func_trigonometric.inl:
+
+/usr/include/glm/ext/vector_uint1_sized.hpp:
 
 /usr/include/glm/ext/vector_float2.hpp:
 
@@ -1881,6 +2151,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/c++/11/bits/concept_check.h:
 
+/usr/include/glm/ext/vector_relational.hpp:
+
 /usr/include/glm/ext/vector_float2_precision.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
@@ -1907,6 +2179,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/usr/include/glm/detail/type_quat.inl:
+
 /usr/include/c++/11/debug/debug.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
@@ -1918,6 +2192,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/glm/ext/vector_float3_precision.hpp:
 
 /usr/include/c++/11/pstl/pstl_config.h:
+
+/usr/include/glm/ext/matrix_clip_space.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -1977,6 +2253,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/ext/vector_float4.hpp:
 
+/usr/include/glm/ext/vector_double1.hpp:
+
 /usr/include/c++/11/bits/std_abs.h:
 
 /usr/include/c++/11/tr1/special_function_util.h:
@@ -1994,10 +2272,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/glm/mat3x3.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
-
-/usr/include/c++/11/ios:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
@@ -2019,9 +2293,13 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/endian.h:
 
+/usr/include/glm/gtc/matrix_transform.inl:
+
 /usr/include/glm/detail/qualifier.hpp:
 
 /usr/include/glm/detail/type_mat2x3.hpp:
+
+/usr/include/glm/ext/quaternion_geometric.hpp:
 
 /usr/include/glm/ext/matrix_float3x4.hpp:
 
@@ -2043,6 +2321,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/ext/vector_int2.hpp:
 
+/usr/include/glm/gtc/constants.hpp:
+
 /usr/include/glm/ext/vector_int2_sized.hpp:
 
 /usr/include/c++/11/bits/vector.tcc:
@@ -2057,9 +2337,13 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/packing.hpp:
 
+/usr/include/glm/ext/matrix_projection.hpp:
+
 /usr/include/c++/11/math.h:
 
 /usr/include/glm/ext/vector_uint2.hpp:
+
+/usr/include/glm/ext/quaternion_relational.hpp:
 
 /usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
@@ -2079,9 +2363,15 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/ext/matrix_float2x4.hpp:
 
+/usr/include/glm/ext/quaternion_float_precision.hpp:
+
 /usr/include/glm/ext/vector_double3.hpp:
 
+/usr/include/glm/ext/quaternion_common.hpp:
+
 /usr/include/glm/ext/vector_double3_precision.hpp:
+
+/usr/include/glm/ext/vector_double1_precision.hpp:
 
 /usr/include/glm/ext/vector_int3.hpp:
 
@@ -2189,6 +2479,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/ext/matrix_double3x3_precision.hpp:
 
+/usr/include/glm/ext/matrix_transform.inl:
+
 /usr/include/glm/ext/matrix_float3x3.hpp:
 
 /usr/include/glm/mat3x4.hpp:
@@ -2199,6 +2491,10 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/ext/matrix_double3x4_precision.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/glm/ext/scalar_constants.hpp:
+
 /usr/include/glm/ext/matrix_float4x2.hpp:
 
 /usr/include/c++/11/initializer_list:
@@ -2206,8 +2502,6 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/c++/11/iosfwd:
 
 /usr/include/glm/ext/matrix_float4x3_precision.hpp:
-
-/usr/include/c++/11/ostream:
 
 /usr/include/glm/ext/vector_double4.hpp:
 
@@ -2224,6 +2518,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 /usr/include/KHR/khrplatform.h:
 
 /usr/include/glm/ext/matrix_double4x3_precision.hpp:
+
+/usr/include/glm/ext/quaternion_common.inl:
 
 /usr/include/glm/ext/matrix_double4x4_precision.hpp:
 
@@ -2249,11 +2545,15 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
+/usr/include/c++/11/cstring:
+
 /usr/include/math.h:
 
 /usr/include/glm/common.hpp:
 
 /usr/include/c++/11/bits/alloc_traits.h:
+
+/usr/include/glm/gtc/epsilon.hpp:
 
 /usr/include/stdc-predef.h:
 
@@ -2269,4 +2569,8 @@ CMakeFiles/my_opengl_project.dir/src/triangle_mesh.cpp.o: ../src/triangle_mesh.c
 
 /usr/include/glm/integer.hpp:
 
-/usr/include/c++/11/bits/stringfwd.h:
+/usr/include/glm/simd/platform.h:
+
+/usr/include/glm/gtc/matrix_transform.hpp:
+
+/usr/include/glm/ext/scalar_constants.inl:
