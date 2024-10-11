@@ -38,5 +38,10 @@
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
   "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp",
   "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/controller/app.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factory.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factory.cpp"
 }
 ]

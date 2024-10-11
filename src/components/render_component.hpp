@@ -4,6 +4,5 @@
 
 
 struct RenderComponent {
-    unsigned int material;
-    unsigned int mesh;
+    unsigned int material, VAO, vertexCount;
 };

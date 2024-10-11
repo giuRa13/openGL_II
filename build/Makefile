@@ -177,6 +177,30 @@ src/controller/app.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s
 .PHONY : src/controller/app.cpp.s
 
+src/factory.o: src/factory.cpp.o
+.PHONY : src/factory.o
+
+# target to build an object file
+src/factory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.o
+.PHONY : src/factory.cpp.o
+
+src/factory.i: src/factory.cpp.i
+.PHONY : src/factory.i
+
+# target to preprocess a source file
+src/factory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.i
+.PHONY : src/factory.cpp.i
+
+src/factory.s: src/factory.cpp.s
+.PHONY : src/factory.s
+
+# target to generate assembly for a file
+src/factory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.s
+.PHONY : src/factory.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -336,6 +360,9 @@ help:
 	@echo "... src/controller/app.o"
 	@echo "... src/controller/app.i"
 	@echo "... src/controller/app.s"
+	@echo "... src/factory.o"
+	@echo "... src/factory.i"
+	@echo "... src/factory.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

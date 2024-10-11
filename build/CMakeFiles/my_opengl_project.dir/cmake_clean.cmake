@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_opengl_project.dir/src/config.cpp.o.d"
   "CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o"
   "CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o.d"
+  "CMakeFiles/my_opengl_project.dir/src/factory.cpp.o"
+  "CMakeFiles/my_opengl_project.dir/src/factory.cpp.o.d"
   "CMakeFiles/my_opengl_project.dir/src/glad.c.o"
   "CMakeFiles/my_opengl_project.dir/src/glad.c.o.d"
   "CMakeFiles/my_opengl_project.dir/src/main.cpp.o"

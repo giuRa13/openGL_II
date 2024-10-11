@@ -13,22 +13,18 @@ void RenderSystem::update(
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    for (std::pair<unsigned int, RenderComponent> entity : renderComponents)
+    for (auto& [entity,renderable] : renderComponents)
     {
 
-        TransformComponent& transform = transformComponents[entity.first];
+        TransformComponent& transform = transformComponents[entity];
         glm::mat4 model = glm::mat4(1.0f);
 	    model = glm::translate(model, transform.position);
-	    model = glm::rotate(
-            model, glm::radians(transform.eulers.z), 
-            { 0.0f, 0.0f, 1.0f });
-        glUniformMatrix4fv(
-		    modelLocation, 1, GL_FALSE, 
-		    glm::value_ptr(model));
+	    model = glm::rotate(model, glm::radians(transform.eulers.z), { 0.0f, 0.0f, 1.0f });
+        glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
         
-        glBindTexture(GL_TEXTURE_2D, entity.second.material);
-        glBindVertexArray(entity.second.mesh);
-	    glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindTexture(GL_TEXTURE_2D, renderable.material);
+        glBindVertexArray(renderable.VAO);
+	    glDrawArrays(GL_TRIANGLES, 0, renderable.vertexCount);
     }
     
 	glfwSwapBuffers(window);

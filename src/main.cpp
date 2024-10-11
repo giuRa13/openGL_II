@@ -4,6 +4,7 @@
 #include "components/physics_component.hpp"
 #include "components/render_component.hpp"
 #include "components/transform_component.hpp"
+#include "factory.hpp"
 //#include "triangle_mesh.hpp"
 //#include "material.hpp"
 //#include "linear_algebra.hpp"
@@ -20,14 +21,26 @@ void GetOpenGLVersionInfo()
 int main(int, char**) 
 {
 	App* app = new App();
+    Factory* factory = new Factory(
+		app->physicsComponents, 
+		app->renderComponents, 
+        app->transformComponents);
 
     GetOpenGLVersionInfo();
 
-    //TriangleMesh* triangle = new TriangleMesh();
-    //Material* material = new Material("../img/areYou.png");
-    //Material* mask = new Material("../img/vignette.jpg");
 
-	unsigned int cubeEntity = app->make_entity();
+	factory->make_cube({3.0f, 0.0f, 0.25f}, {0.0f, 0.0f, 0.0f}, {0.0f, 0.0f, 10.0f});
+
+    factory->make_girl({5.0f, 00.0f, 0.25f}, {0.0f, 0.0f, 180.0f});
+
+	unsigned int cameraEntity = factory->make_camera({0.0f, 0.0f, 1.0f}, {0.0f, 0.0f,0.0f});
+
+	CameraComponent* camera = new CameraComponent();
+	app->cameraComponent = camera;
+	app->cameraID = cameraEntity;
+
+
+	/*unsigned int cubeEntity = app->make_entity();
 	TransformComponent transform;
 	transform.position = {3.0f, 0.0f, 0.25f};
 	transform.eulers = {0.0f, 0.0f, 0.0f};
@@ -50,15 +63,17 @@ int main(int, char**)
 
 	CameraComponent* camera = new CameraComponent();
 	app->cameraComponent = camera;
-	app->cameraID = cameraEntity;
+	app->cameraID = cameraEntity;*/
 
 	app->set_up_opengl();
 	app->make_systems();
 
 	app->run();
 
+    delete factory;
 	delete app;
-	return 0;
+	
+    return 0;
 }
 
 

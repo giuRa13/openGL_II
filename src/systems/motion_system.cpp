@@ -6,13 +6,13 @@ void MotionSystem::update(
     float dt) 
 {
     
-    for (std::pair<unsigned int, PhysicsComponent> entity : physicsComponents) 
+    for (auto& [entity, velocity] : physicsComponents) 
     {
-        transformComponents[entity.first].position += entity.second.velocity * dt;
-        transformComponents[entity.first].eulers += entity.second.eulerVelocity * dt;
+        transformComponents[entity].position += velocity.velocity * dt;
+        transformComponents[entity].eulers += velocity.eulerVelocity * dt;
 
-        if (transformComponents[entity.first].eulers.z > 360) {
-            transformComponents[entity.first].eulers.z -= 360;
+        if (transformComponents[entity].eulers.z > 360) {
+            transformComponents[entity].eulers.z -= 360;
         }
     }
 }

@@ -14,6 +14,7 @@ add_executable(my_opengl_project
     src/systems/render_system.cpp
     src/view/shader.cpp
     src/controller/app.cpp
+    src/factory.cpp
     #src/triangle_mesh.cpp
     #src/material.cpp
     #src/linear_algebra.cpp
