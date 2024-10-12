@@ -48,10 +48,6 @@ void Factory::make_girl(glm::vec3 position, glm::vec3 eulers)
 	transform.position = position;
 	transform.eulers = eulers;
 	transformComponents[entities_made] = transform;
-	
-    //glm::mat4 preTransform = glm::mat4(1.0f);
-    //preTransform = glm::rotate(preTransform, glm::radians(90.0f), {1.0f, 0.0f, 0.0f});
-    //preTransform = glm::rotate(preTransform, glm::radians(90.0f), {0.0f, 1.0f, 0.0f});
 
 	RenderComponent render;
 	render.objectType = ObjectType::eGirl;

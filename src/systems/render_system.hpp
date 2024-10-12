@@ -11,6 +11,7 @@ class RenderSystem {
 public:
 
     RenderSystem(unsigned int shader, GLFWwindow* window);
+    ~RenderSystem();
     
     void update(
         std::unordered_map<unsigned int,TransformComponent> &transformComponents,
@@ -19,11 +20,12 @@ public:
 
     
 private:
-    std::unordered_map<ObjectType, 
-        std::unordered_map<AnimationType, std::vector<unsigned int>>> VAOs;
+    void build_models();
+    //void build_geometry();
+
+    std::unordered_map<ObjectType, std::unordered_map<AnimationType, unsigned int>> VAOs;
     
-    std::unordered_map<ObjectType, 
-        std::unordered_map<AnimationType, std::vector<unsigned int>>> VBOs;
+    std::unordered_map<ObjectType, std::unordered_map<AnimationType, unsigned int>> VBOs;
     
     std::unordered_map<ObjectType, unsigned int> vertexCounts;
     std::unordered_map<ObjectType, unsigned int> textures;

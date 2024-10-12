@@ -53,5 +53,10 @@
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
   "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factories/mesh_factory.cpp",
   "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factories/mesh_factory.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factories/texture_factory.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factories/texture_factory.cpp"
 }
 ]

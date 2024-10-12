@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.o.d"
   "CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o"
   "CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o.d"
+  "CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.o"
+  "CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.o.d"
   "CMakeFiles/my_opengl_project.dir/src/glad.c.o"
   "CMakeFiles/my_opengl_project.dir/src/glad.c.o.d"
   "CMakeFiles/my_opengl_project.dir/src/main.cpp.o"

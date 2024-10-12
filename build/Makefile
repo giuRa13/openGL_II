@@ -225,6 +225,30 @@ src/factories/mesh_factory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.s
 .PHONY : src/factories/mesh_factory.cpp.s
 
+src/factories/texture_factory.o: src/factories/texture_factory.cpp.o
+.PHONY : src/factories/texture_factory.o
+
+# target to build an object file
+src/factories/texture_factory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.o
+.PHONY : src/factories/texture_factory.cpp.o
+
+src/factories/texture_factory.i: src/factories/texture_factory.cpp.i
+.PHONY : src/factories/texture_factory.i
+
+# target to preprocess a source file
+src/factories/texture_factory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.i
+.PHONY : src/factories/texture_factory.cpp.i
+
+src/factories/texture_factory.s: src/factories/texture_factory.cpp.s
+.PHONY : src/factories/texture_factory.s
+
+# target to generate assembly for a file
+src/factories/texture_factory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/texture_factory.cpp.s
+.PHONY : src/factories/texture_factory.cpp.s
+
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -414,6 +438,9 @@ help:
 	@echo "... src/factories/mesh_factory.o"
 	@echo "... src/factories/mesh_factory.i"
 	@echo "... src/factories/mesh_factory.s"
+	@echo "... src/factories/texture_factory.o"
+	@echo "... src/factories/texture_factory.i"
+	@echo "... src/factories/texture_factory.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
