@@ -10,7 +10,7 @@ RenderSystem::RenderSystem(unsigned int shader, GLFWwindow* window)
 
     build_models();
 
-    //build_geometry();
+    build_geometry();
 }
 
 RenderSystem::~RenderSystem() {
@@ -52,10 +52,12 @@ void RenderSystem::build_models()
     //Girl
     objectType = ObjectType::eGirl;
     animationType = AnimationType::eNone;
-    glm::mat4 preTransform = glm::mat4(1.0f);
-	preTransform = glm::rotate(preTransform, glm::radians(90.0f), { 1.0f, 0.0f, 0.0f });
+    glm::mat4 preTransform = glm::mat4(1.0);
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::rotate(preTransform, glm::radians(90.0f), { 1.0f, 0.0f, 0.00f });
     preTransform = glm::rotate(preTransform, glm::radians(90.0f), { 0.0f, 1.0f, 0.0f });
-    
+    preTransform = glm::translate(preTransform,{0.0f, 1.0f, -1.5f}); 
+
     meshFactory.start_obj_mesh();
     meshFactory.append_obj_mesh("../models/girl.obj", preTransform);
     mesh = meshFactory.build_obj_mesh();
@@ -68,7 +70,7 @@ void RenderSystem::build_models()
     objectType = ObjectType::eRevy;
     animationType = AnimationType::eRun;
     preTransform = glm::mat4(1.0f);
-    preTransform = glm::translate(preTransform,{0.0f, 0.0f, -1.0f}); 
+    preTransform = glm::translate(preTransform,{0.0f, 0.0f, -0.25f}); 
 	preTransform = glm::rotate(preTransform, glm::radians(-90.0f), { 0.0f, 0.0f, 1.0f });
 
     meshFactory.start_obj_mesh();
@@ -95,6 +97,69 @@ void RenderSystem::build_models()
 }
     
 
+void RenderSystem::build_geometry() 
+{
+    MeshFactory meshFactory;
+    TextureFactory textureFactory;
+
+    ObjectType objectType = ObjectType::eGeometry;
+    AnimationType animationType = AnimationType::eNone;
+    meshFactory.start_obj_mesh();
+    //ground
+    glm::mat4 preTransform = glm::mat4(1.0f);
+    preTransform = glm::scale(preTransform, {2.0f, 2.0f, 1.0f});
+    meshFactory.append_obj_mesh("../models/ground.obj", preTransform);
+    //west wall
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {10.0f, 0.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/wall.obj", preTransform);
+    //east wall
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {-10.0f, 0.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/wall.obj", preTransform);
+    //North wall
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {0.0f, 10.0f, 0.0f});
+    preTransform = glm::rotate(preTransform, glm::radians(90.0f), {0.0f, 0.0f, 1.0f});
+    meshFactory.append_obj_mesh("../models/wall.obj", preTransform);
+    //South wall
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {0.0f, -10.0f, 0.0f});
+    preTransform = glm::rotate(preTransform, glm::radians(90.0f), {0.0f, 0.0f, 1.0f});
+    meshFactory.append_obj_mesh("../models/wall.obj", preTransform);
+    //Northwest corner
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {10.0f, 10.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/corner.obj", preTransform);
+    //Southwest corner
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {10.0f, -10.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/corner.obj", preTransform);
+    //Southeast corner
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {-10.0f, -10.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/corner.obj", preTransform);
+    //Northeast corner
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {-10.0f, 10.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/corner.obj", preTransform);
+    //a tree
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {3.0f, -2.5f, 0.0f});
+    meshFactory.append_obj_mesh("../models/tree.obj", preTransform);
+    //another tree
+    preTransform = glm::mat4(1.0f);
+    preTransform = glm::translate(preTransform, {-2.0f, 1.0f, 0.0f});
+    meshFactory.append_obj_mesh("../models/tree.obj", preTransform);
+
+    StaticMesh mesh = meshFactory.build_obj_mesh();
+    VAOs[objectType][animationType] = mesh.VAO;
+    VBOs[objectType][animationType] = mesh.VBO;
+    vertexCounts[objectType] = mesh.vertexCount;
+    textures[objectType] = textureFactory.make_texture("../img/paper.jpg");
+}
+
+
 void RenderSystem::update(
     std::unordered_map<unsigned int,TransformComponent> &transformComponents,
     std::unordered_map<unsigned int,RenderComponent> &renderComponents,
@@ -102,7 +167,14 @@ void RenderSystem::update(
 {
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear frame
-    
+
+    //static geometry
+    glm::mat4 model = glm::mat4(1.0f);
+    glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
+    glBindTexture(GL_TEXTURE_2D, textures[ObjectType::eGeometry]);
+    glBindVertexArray(VAOs[ObjectType::eGeometry][AnimationType::eNone]);
+    glDrawArrays(GL_TRIANGLES, 0, vertexCounts[ObjectType::eGeometry]);
+
     for (auto& [entity,renderable] : renderComponents)
     {
         TransformComponent& transform = transformComponents[entity];

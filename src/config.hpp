@@ -21,7 +21,8 @@ enum class ObjectType
 {
     eBox,
     eGirl,
-    eRevy
+    eRevy,
+    eGeometry
 };
 
 enum class AnimationType
