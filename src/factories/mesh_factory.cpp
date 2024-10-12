@@ -11,6 +11,7 @@ void MeshFactory::start_obj_mesh()
     v_loaded = 0;
     vt_loaded = 0;
     vn_loaded = 0;
+    //current_layer = 0;
 }
 
 void MeshFactory::reserve_space(const char* filename)
@@ -49,7 +50,9 @@ void MeshFactory::reserve_space(const char* filename)
             //triangleCount += words.size() - 3;
             // - 3 because one of the "words" is the "f" 
 
-            dataCount += 3 * 8 * (words.size() -3);//three corners per triangle, 8 floats per corner
+            dataCount += 3 * 9 * (words.size() -3);
+            //3 corners per triangle, 8 floats per corner
+            // 9 cause add texture Layer
         }
     }
     file.close();
@@ -129,6 +132,7 @@ void MeshFactory::read_corner(std::string description)
     glm::vec2 texcoord = vt[ vt_loaded + std::stol(v_vt_vn[1]) - 1];
     vertices.push_back(texcoord[0]);
     vertices.push_back(texcoord[1]);
+    vertices.push_back(current_layer);
 
     //normal
     glm::vec3 normal = vn[ vn_loaded + std::stol(v_vt_vn[2]) - 1];
@@ -150,18 +154,19 @@ StaticMesh MeshFactory::build_obj_mesh()
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 
     //position
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 32, (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 36, (void*)0); 
     glEnableVertexAttribArray(0);
     //texture coordinates
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 32, (void*)12);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 36, (void*)12);
     glEnableVertexAttribArray(1);
     //normal
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 32, (void*)20);
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 36, (void*)24);
     glEnableVertexAttribArray(2);
+    //36 = 3 * 3 * 3 -> 9 floats = 36bytes(9*4)
 
     StaticMesh mesh;
     mesh.VAO = VAO;
-    mesh.vertexCount = vertices.size() / 8;
+    mesh.vertexCount = vertices.size() / 9;
     mesh.VBO = VBO;
     v.clear();
     vt.clear();
@@ -170,7 +175,7 @@ StaticMesh MeshFactory::build_obj_mesh()
     return mesh;    
 }
 
-void MeshFactory::append_cube_mesh(glm::vec3 size) 
+void MeshFactory::append_cube_mesh(glm::vec3 size, float layer) 
 {
 
     float l = size.x;
@@ -178,54 +183,55 @@ void MeshFactory::append_cube_mesh(glm::vec3 size)
     float h = size.z;
 
     vertices = {
-         l,  w, -h, 1.0f, 1.0f,  0.0f,  0.0f, -1.0f,
-         l, -w, -h, 1.0f, 0.0f,  0.0f,  0.0f, -1.0f,
-        -l, -w, -h, 0.0f, 0.0f,  0.0f,  0.0f, -1.0f,
-        -l, -w, -h, 0.0f, 0.0f,  0.0f,  0.0f, -1.0f,
-        -l,  w, -h, 0.0f, 1.0f,  0.0f,  0.0f, -1.0f,
-         l,  w, -h, 1.0f, 1.0f,  0.0f,  0.0f, -1.0f,
+         l,  w, -h, 1.0f, 1.0f, layer,  0.0f,  0.0f, -1.0f, //x, y, z|  u, v, layer|  normals  
+         l, -w, -h, 1.0f, 0.0f, layer,  0.0f,  0.0f, -1.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer,  0.0f,  0.0f, -1.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer,  0.0f,  0.0f, -1.0f,
+        -l,  w, -h, 0.0f, 1.0f, layer,  0.0f,  0.0f, -1.0f,
+         l,  w, -h, 1.0f, 1.0f, layer, 0.0f,  0.0f, -1.0f,
 
-        -l, -w,  h, 0.0f, 0.0f,  0.0f,  0.0f,  1.0f,
-         l, -w,  h, 1.0f, 0.0f,  0.0f,  0.0f,  1.0f,
-         l,  w,  h, 1.0f, 1.0f,  0.0f,  0.0f,  1.0f,
-         l,  w,  h, 1.0f, 1.0f,  0.0f,  0.0f,  1.0f,
-        -l,  w,  h, 0.0f, 1.0f,  0.0f,  0.0f,  1.0f,
-        -l, -w,  h, 0.0f, 0.0f,  0.0f,  0.0f,  1.0f,
+        -l, -w,  h, 0.0f, 0.0f, layer,  0.0f,  0.0f,  1.0f,
+         l, -w,  h, 1.0f, 0.0f, layer,  0.0f,  0.0f,  1.0f,
+         l,  w,  h, 1.0f, 1.0f, layer,  0.0f,  0.0f,  1.0f,
+         l,  w,  h, 1.0f, 1.0f, layer,  0.0f,  0.0f,  1.0f,
+        -l,  w,  h, 0.0f, 1.0f, layer,  0.0f,  0.0f,  1.0f,
+        -l, -w,  h, 0.0f, 0.0f, layer,  0.0f,  0.0f,  1.0f,
 
-        -l,  w,  h, 1.0f, 1.0f, -1.0f,  0.0f,  0.0f,
-        -l,  w, -h, 1.0f, 0.0f, -1.0f,  0.0f,  0.0f,
-        -l, -w, -h, 0.0f, 0.0f, -1.0f,  0.0f,  0.0f,
-        -l, -w, -h, 0.0f, 0.0f, -1.0f,  0.0f,  0.0f,
-        -l, -w,  h, 0.0f, 1.0f, -1.0f,  0.0f,  0.0f,
-        -l,  w,  h, 1.0f, 1.0f, -1.0f,  0.0f,  0.0f,
+        -l,  w,  h, 1.0f, 1.0f, layer, -1.0f,  0.0f,  0.0f,
+        -l,  w, -h, 1.0f, 0.0f, layer, -1.0f,  0.0f,  0.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer, -1.0f,  0.0f,  0.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer, -1.0f,  0.0f,  0.0f,
+        -l, -w,  h, 0.0f, 1.0f, layer, -1.0f,  0.0f,  0.0f,
+        -l,  w,  h, 1.0f, 1.0f, layer, -1.0f,  0.0f,  0.0f,
 
-         l, -w, -h, 0.0f, 0.0f,  1.0f,  0.0f,  0.0f,
-         l,  w, -h, 1.0f, 0.0f,  1.0f,  0.0f,  0.0f,
-         l,  w,  h, 1.0f, 1.0f,  1.0f,  0.0f,  0.0f,
-         l,  w,  h, 1.0f, 1.0f,  1.0f,  0.0f,  0.0f,
-         l, -w,  h, 0.0f, 1.0f,  1.0f,  0.0f,  0.0f,
-         l, -w, -h, 0.0f, 0.0f,  1.0f,  0.0f,  0.0f,
+         l, -w, -h, 0.0f, 0.0f, layer,  1.0f,  0.0f,  0.0f,
+         l,  w, -h, 1.0f, 0.0f, layer,  1.0f,  0.0f,  0.0f,
+         l,  w,  h, 1.0f, 1.0f, layer,  1.0f,  0.0f,  0.0f,
+         l,  w,  h, 1.0f, 1.0f, layer,  1.0f,  0.0f,  0.0f,
+         l, -w,  h, 0.0f, 1.0f, layer,  1.0f,  0.0f,  0.0f,
+         l, -w, -h, 0.0f, 0.0f, layer,  1.0f,  0.0f,  0.0f,
 
-        -l, -w, -h, 0.0f, 0.0f,  0.0f, -1.0f,  0.0f,
-         l, -w, -h, 1.0f, 0.0f,  0.0f, -1.0f,  0.0f,
-         l, -w,  h, 1.0f, 1.0f,  0.0f, -1.0f,  0.0f,
-         l, -w,  h, 1.0f, 1.0f,  0.0f, -1.0f,  0.0f,
-        -l, -w,  h, 0.0f, 1.0f,  0.0f, -1.0f,  0.0f,
-        -l, -w, -h, 0.0f, 0.0f,  0.0f, -1.0f,  0.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer,  0.0f, -1.0f,  0.0f,
+         l, -w, -h, 1.0f, 0.0f, layer,  0.0f, -1.0f,  0.0f,
+         l, -w,  h, 1.0f, 1.0f, layer,  0.0f, -1.0f,  0.0f,
+         l, -w,  h, 1.0f, 1.0f, layer,  0.0f, -1.0f,  0.0f,
+        -l, -w,  h, 0.0f, 1.0f, layer,  0.0f, -1.0f,  0.0f,
+        -l, -w, -h, 0.0f, 0.0f, layer,  0.0f, -1.0f,  0.0f,
 
-         l,  w,  h, 1.0f, 1.0f,  0.0f,  1.0f,  0.0f,
-         l,  w, -h, 1.0f, 0.0f,  0.0f,  1.0f,  0.0f,
-        -l,  w, -h, 0.0f, 0.0f,  0.0f,  1.0f,  0.0f,
-        -l,  w, -h, 0.0f, 0.0f,  0.0f,  1.0f,  0.0f,
-        -l,  w,  h, 0.0f, 1.0f,  0.0f,  1.0f,  0.0f,
-         l,  w,  h, 1.0f, 1.0f,  0.0f,  1.0f,  0.0f
+         l,  w,  h, 1.0f, 1.0f, layer,  0.0f,  1.0f,  0.0f,
+         l,  w, -h, 1.0f, 0.0f, layer,  0.0f,  1.0f,  0.0f,
+        -l,  w, -h, 0.0f, 0.0f, layer,  0.0f,  1.0f,  0.0f,
+        -l,  w, -h, 0.0f, 0.0f, layer,  0.0f,  1.0f,  0.0f,
+        -l,  w,  h, 0.0f, 1.0f, layer,  0.0f,  1.0f,  0.0f,
+         l,  w,  h, 1.0f, 1.0f, layer,  0.0f,  1.0f,  0.0f
     };
 }
 
 
-void MeshFactory::append_obj_mesh(const char* filename, glm::mat4 preTransform) 
+void MeshFactory::append_obj_mesh(const char* filename, glm::mat4 preTransform, float layer) 
 {
     this->preTransform = preTransform;
+    current_layer = layer;
 
     reserve_space(filename);
 

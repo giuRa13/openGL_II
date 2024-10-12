@@ -14,9 +14,9 @@ class MeshFactory {
 public:
     void start_obj_mesh(); 
 
-    void append_cube_mesh(glm::vec3 size);
+    void append_cube_mesh(glm::vec3 size, float layer);
 
-    void append_obj_mesh(const char* filename, glm::mat4 preTransform);
+    void append_obj_mesh(const char* filename, glm::mat4 preTransform, float layer); //layer of texture array
 
     StaticMesh build_obj_mesh();
     
@@ -36,6 +36,7 @@ private:
     std::vector<float> vertices;
 
     size_t v_loaded, vt_loaded, vn_loaded;
+    float current_layer;
 
     glm::mat4 preTransform;
 

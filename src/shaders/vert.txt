@@ -1,10 +1,10 @@
 #version 460 core
 
 layout (location=0) in vec3 vertexPos;
-layout (location=1) in vec2 vertexTexCoord;
+layout (location=1) in vec3 vertexTexCoord;
 layout (location=2) in vec3 vertexNormal;
 
-out vec2 fragmentTexCoord;
+out vec3 fragmentTexCoord;
 out vec3 fragmentNormal;
 
 uniform mat4 model;

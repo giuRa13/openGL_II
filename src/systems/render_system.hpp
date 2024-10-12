@@ -28,8 +28,8 @@ private:
     std::unordered_map<ObjectType, std::unordered_map<AnimationType, unsigned int>> VBOs;
     
     std::unordered_map<ObjectType, unsigned int> vertexCounts;
-    std::unordered_map<ObjectType, unsigned int> textures;
-    //std::vector<unsigned int> textures;
+
+    std::vector<unsigned int> textures; 
 
     unsigned int modelLocation;
     GLFWwindow* window;
