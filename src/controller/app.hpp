@@ -5,9 +5,11 @@
 #include "../components/physics_component.hpp"
 #include "../components/render_component.hpp"
 #include "../components/transform_component.hpp"
+#include "../components/animation_component.hpp"
 #include "../systems/camera_system.hpp"
 #include "../systems/motion_system.hpp"
 #include "../systems/render_system.hpp"
+#include "../systems/animation_system.hpp"
 #include "../view/shader.hpp"
 
 
@@ -24,6 +26,7 @@ public:
     //Components
     std::unordered_map<unsigned int, TransformComponent> transformComponents;
     std::unordered_map<unsigned int, PhysicsComponent> physicsComponents;
+    std::unordered_map<unsigned int, AnimationComponent> animationComponents;
     CameraComponent* cameraComponent;
     unsigned int cameraID;
     std::unordered_map<unsigned int, RenderComponent> renderComponents;
@@ -40,4 +43,5 @@ private:
     MotionSystem* motionSystem;
     CameraSystem* cameraSystem;
     RenderSystem* renderSystem;
+    AnimationSystem* animationSystem;
 };

@@ -177,29 +177,53 @@ src/controller/app.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.s
 .PHONY : src/controller/app.cpp.s
 
-src/factory.o: src/factory.cpp.o
-.PHONY : src/factory.o
+src/factories/factory.o: src/factories/factory.cpp.o
+.PHONY : src/factories/factory.o
 
 # target to build an object file
-src/factory.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.o
-.PHONY : src/factory.cpp.o
+src/factories/factory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.o
+.PHONY : src/factories/factory.cpp.o
 
-src/factory.i: src/factory.cpp.i
-.PHONY : src/factory.i
+src/factories/factory.i: src/factories/factory.cpp.i
+.PHONY : src/factories/factory.i
 
 # target to preprocess a source file
-src/factory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.i
-.PHONY : src/factory.cpp.i
+src/factories/factory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.i
+.PHONY : src/factories/factory.cpp.i
 
-src/factory.s: src/factory.cpp.s
-.PHONY : src/factory.s
+src/factories/factory.s: src/factories/factory.cpp.s
+.PHONY : src/factories/factory.s
 
 # target to generate assembly for a file
-src/factory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factory.cpp.s
-.PHONY : src/factory.cpp.s
+src/factories/factory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.s
+.PHONY : src/factories/factory.cpp.s
+
+src/factories/mesh_factory.o: src/factories/mesh_factory.cpp.o
+.PHONY : src/factories/mesh_factory.o
+
+# target to build an object file
+src/factories/mesh_factory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o
+.PHONY : src/factories/mesh_factory.cpp.o
+
+src/factories/mesh_factory.i: src/factories/mesh_factory.cpp.i
+.PHONY : src/factories/mesh_factory.i
+
+# target to preprocess a source file
+src/factories/mesh_factory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.i
+.PHONY : src/factories/mesh_factory.cpp.i
+
+src/factories/mesh_factory.s: src/factories/mesh_factory.cpp.s
+.PHONY : src/factories/mesh_factory.s
+
+# target to generate assembly for a file
+src/factories/mesh_factory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.s
+.PHONY : src/factories/mesh_factory.cpp.s
 
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
@@ -248,6 +272,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/systems/animation_system.o: src/systems/animation_system.cpp.o
+.PHONY : src/systems/animation_system.o
+
+# target to build an object file
+src/systems/animation_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/animation_system.cpp.o
+.PHONY : src/systems/animation_system.cpp.o
+
+src/systems/animation_system.i: src/systems/animation_system.cpp.i
+.PHONY : src/systems/animation_system.i
+
+# target to preprocess a source file
+src/systems/animation_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/animation_system.cpp.i
+.PHONY : src/systems/animation_system.cpp.i
+
+src/systems/animation_system.s: src/systems/animation_system.cpp.s
+.PHONY : src/systems/animation_system.s
+
+# target to generate assembly for a file
+src/systems/animation_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_opengl_project.dir/build.make CMakeFiles/my_opengl_project.dir/src/systems/animation_system.cpp.s
+.PHONY : src/systems/animation_system.cpp.s
 
 src/systems/camera_system.o: src/systems/camera_system.cpp.o
 .PHONY : src/systems/camera_system.o
@@ -360,15 +408,21 @@ help:
 	@echo "... src/controller/app.o"
 	@echo "... src/controller/app.i"
 	@echo "... src/controller/app.s"
-	@echo "... src/factory.o"
-	@echo "... src/factory.i"
-	@echo "... src/factory.s"
+	@echo "... src/factories/factory.o"
+	@echo "... src/factories/factory.i"
+	@echo "... src/factories/factory.s"
+	@echo "... src/factories/mesh_factory.o"
+	@echo "... src/factories/mesh_factory.i"
+	@echo "... src/factories/mesh_factory.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/systems/animation_system.o"
+	@echo "... src/systems/animation_system.i"
+	@echo "... src/systems/animation_system.s"
 	@echo "... src/systems/camera_system.o"
 	@echo "... src/systems/camera_system.i"
 	@echo "... src/systems/camera_system.s"

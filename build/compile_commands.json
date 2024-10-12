@@ -31,6 +31,11 @@
 },
 {
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/systems/animation_system.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/systems/animation_system.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/systems/animation_system.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
   "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp",
   "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/view/shader.cpp"
 },
@@ -41,7 +46,12 @@
 },
 {
   "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
-  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factory.cpp",
-  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factory.cpp"
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factories/factory.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factories/factory.cpp"
+},
+{
+  "directory": "/home/giuli/Desktop/openGL_engine/openGL_II/build",
+  "command": "/usr/bin/c++   -g -o CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o -c /home/giuli/Desktop/openGL_engine/openGL_II/src/factories/mesh_factory.cpp",
+  "file": "/home/giuli/Desktop/openGL_engine/openGL_II/src/factories/mesh_factory.cpp"
 }
 ]

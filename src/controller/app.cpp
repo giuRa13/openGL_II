@@ -1,5 +1,5 @@
 #include "app.hpp"
-#include "../stb_image.h"
+
 
 App::App() 
 {
@@ -13,6 +13,7 @@ App::~App()
     delete motionSystem;
     delete cameraSystem;
     delete renderSystem;
+    delete animationSystem;
     
     glfwTerminate();
 }
@@ -30,7 +31,9 @@ void App::run()
 			break;
 		}
 
-		renderSystem->update(transformComponents, renderComponents);
+        animationSystem->update(animationComponents, 16.667f);
+		renderSystem->update(transformComponents, renderComponents, animationComponents);
+        
 	}
 }
 
@@ -85,4 +88,5 @@ void App::make_systems()
     motionSystem = new MotionSystem();
     cameraSystem = new CameraSystem(shader, window);
     renderSystem = new RenderSystem(shader, window);
+    animationSystem = new AnimationSystem();
 }

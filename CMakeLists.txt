@@ -12,9 +12,11 @@ add_executable(my_opengl_project
     src/systems/camera_system.cpp
     src/systems/motion_system.cpp
     src/systems/render_system.cpp
+    src/systems/animation_system.cpp
     src/view/shader.cpp
     src/controller/app.cpp
-    src/factory.cpp
+    src/factories/factory.cpp
+    src/factories/mesh_factory.cpp
     #src/triangle_mesh.cpp
     #src/material.cpp
     #src/linear_algebra.cpp
