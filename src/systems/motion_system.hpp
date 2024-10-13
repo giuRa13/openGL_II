@@ -3,27 +3,21 @@
 #include "../config.hpp"
 #include "../components/transform_component.hpp"
 #include "../components/physics_component.hpp"
+#include "../components/component_set.hpp"
 
-class MotionSystem {
+
+class MotionSystem 
+{
     
 public:
-    
-    void update(
-        std::unordered_map<unsigned int,TransformComponent> &transformComponents,
-        std::unordered_map<unsigned int,PhysicsComponent> &physicsComponents,
-        float dt);
+    MotionSystem(ComponentSet<TransformComponent> &transforms, 
+        ComponentSet<PhysicsComponent> &velocities);
+
+    void update(float dt);
 
 
 private:
-    std::unordered_map<ObjectType, 
-        std::unordered_map<AnimationType, std::vector<unsigned int>>> VAOs;
-    
-    std::unordered_map<ObjectType, 
-        std::unordered_map<AnimationType, std::vector<unsigned int>>> VBOs;
-    
-    std::unordered_map<ObjectType, unsigned int> vertexCounts;
-    std::unordered_map<ObjectType, unsigned int> textures;
-    unsigned int modelLocation;
-    
-    GLFWwindow* window;
+    ComponentSet<TransformComponent> &transforms;
+    ComponentSet<PhysicsComponent> &velocities;
+
 };

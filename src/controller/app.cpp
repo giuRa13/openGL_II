@@ -8,7 +8,10 @@ App::App()
 
 App::~App() 
 {
-    glDeleteProgram(shader);
+    for (unsigned int& shader : shaders) 
+    {
+        glDeleteProgram(shader);
+    }
 
     delete motionSystem;
     delete cameraSystem;
@@ -21,19 +24,26 @@ App::~App()
 
 void App::run() 
 {
+
+    lastTime = glfwGetTime();
+    numFrames = 0;
+    frameTime = 16.0f;
+
     while (!glfwWindowShouldClose(window)) {
 
-        motionSystem->update(transformComponents, physicsComponents, 16.67f/1000.0f);
+        motionSystem->update(frameTime / 1000.0f);
         
-        bool should_close = cameraSystem->update(transformComponents, cameraID, *cameraComponent, 16.67f/1000.0f);
+        // send all data about the camera to the appropriate shader
+        bool should_close = cameraSystem->update(frameTime / 1000.0f);
 		
         if (should_close) {
 			break;
 		}
 
-        animationSystem->update(animationComponents, 16.667f);
-		renderSystem->update(transformComponents, renderComponents, animationComponents);
-        
+        animationSystem->update(frameTime);
+		renderSystem->update();
+
+        handle_frame_timing();  
 	}
 }
 
@@ -48,6 +58,7 @@ void App::set_up_glfw()
 	
 	window = glfwCreateWindow(640, 480, "glfw window!", NULL, NULL);
     glfwMakeContextCurrent(window);
+    glfwSwapInterval(0);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -72,21 +83,51 @@ void App::set_up_opengl()
         glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
-    shader = make_shader(
+	shaders.push_back(make_shader(
+		"../src/shaders/vertex_sky.txt", 
+		"../src/shaders/fragment_sky.txt"));
+	shaders.push_back(make_shader(
+		"../src/shaders/geometry_vertex.txt", 
+		"../src/shaders/frag.txt"));
+	shaders.push_back(make_shader(
 		"../src/shaders/vert.txt", 
-		"../src/shaders/frag.txt");
+		"../src/shaders/frag.txt"));
     
-    glUseProgram(shader);
-	unsigned int projLocation = glGetUniformLocation(shader, "projection");
 	glm::mat4 projection = glm::perspective(45.0f, 640.0f / 480.0f, 0.1f, 50.0f);
-	glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
+
+    for (size_t i = 1; i < 3; ++i) 
+    {
+        unsigned int shader = shaders[i];
+
+        glUseProgram(shader);
+	    unsigned int projLocation = glGetUniformLocation(shader, "projection");
+	    glUniformMatrix4fv(projLocation, 1, GL_FALSE, glm::value_ptr(projection));
+    }
 }
 
 
 void App::make_systems() 
 {
-    motionSystem = new MotionSystem();
-    cameraSystem = new CameraSystem(shader, window);
-    renderSystem = new RenderSystem(shader, window);
-    animationSystem = new AnimationSystem();
+	animationSystem = new AnimationSystem(animationComponents);
+    motionSystem = new MotionSystem(transformComponents, physicsComponents);
+    cameraSystem = new CameraSystem(shaders, window, transformComponents, cameraComponents);
+    renderSystem = new RenderSystem(shaders, window, transformComponents, renderComponents, animationComponents);
+}
+
+
+void App::handle_frame_timing() {
+	currentTime = glfwGetTime();
+	double delta = currentTime - lastTime;
+
+	if (delta >= 1) {
+		int framerate{ std::max(1, int(numFrames / delta)) };
+		std::stringstream title;
+		title << "Running at " << framerate << " fps.";
+		glfwSetWindowTitle(window, title.str().c_str());
+		lastTime = currentTime;
+		numFrames = -1;
+		frameTime = float(1000.0 / framerate);
+	}
+
+	++numFrames;
 }

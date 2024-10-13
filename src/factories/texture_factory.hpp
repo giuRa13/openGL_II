@@ -15,7 +15,11 @@ public:
 
     unsigned int finalize_texture_array();
 
+    unsigned int build_cubemap(std::vector<const char*> filenames);
+
 
 private:
+    unsigned int rows, cols;
+
     unsigned int texture;
 };

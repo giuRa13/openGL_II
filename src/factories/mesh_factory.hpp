@@ -5,7 +5,7 @@
 
 struct StaticMesh 
 {
-    unsigned int VAO, VBO, vertexCount;
+    unsigned int VAO, VBO, EBO;
 };
 
 
@@ -19,6 +19,9 @@ public:
     void append_obj_mesh(const char* filename, glm::mat4 preTransform, float layer); //layer of texture array
 
     StaticMesh build_obj_mesh();
+
+    unsigned int elementCount;
+    unsigned int offset;
     
 
 private:
@@ -34,9 +37,13 @@ private:
     std::vector<glm::vec2> vt;
     std::vector<glm::vec3> vn;
     std::vector<float> vertices;
+    std::vector<unsigned int> indices;
+    std::unordered_map<std::string, uint32_t> history;
 
-    size_t v_loaded, vt_loaded, vn_loaded;
     float current_layer;
+    
+    size_t v_loaded, vt_loaded, vn_loaded, last_index;
+    size_t last_index_current;
 
     glm::mat4 preTransform;
 

@@ -25,7 +25,8 @@ int main(int, char**)
 		app->physicsComponents, 
 		app->renderComponents, 
         app->transformComponents,
-        app->animationComponents);
+        app->animationComponents,
+		app->cameraComponents);
 
     GetOpenGLVersionInfo();
 
@@ -36,37 +37,8 @@ int main(int, char**)
 
     factory->make_revy({4.0f, 2.0f, 0.25f}, {0.0f, 0.0f, 270.0f});
 
-	unsigned int cameraEntity = factory->make_camera({0.0f, 0.0f, 1.0f}, {0.0f, 0.0f,0.0f});
-
-	CameraComponent* camera = new CameraComponent();
-	app->cameraComponent = camera;
-	app->cameraID = cameraEntity;
-
-
-	/*unsigned int cubeEntity = app->make_entity();
-	TransformComponent transform;
-	transform.position = {3.0f, 0.0f, 0.25f};
-	transform.eulers = {0.0f, 0.0f, 0.0f};
-	app->transformComponents[cubeEntity] = transform;
-
-	PhysicsComponent physics;
-	physics.velocity = {0.0f, 0.0f, 0.0f};
-	physics.eulerVelocity = {0.0f, 0.0f, 10.0f};
-	app->physicsComponents[cubeEntity] = physics;
+	factory->make_camera({0.0f, 0.0f, 1.0f}, {0.0f, 0.0f,0.0f});
 	
-	RenderComponent render;
-	render.mesh = app->make_cube_mesh({0.25f, 0.25f, 0.25f});
-	render.material = app->make_texture("../img/paper.jpg");
-	app->renderComponents[cubeEntity] = render;
-
-	unsigned int cameraEntity = app->make_entity();
-	transform.position = {0.0f, 0.0f, 1.0f};
-	transform.eulers = {0.0f, 0.0f, 0.0f};
-	app->transformComponents[cameraEntity] = transform;
-
-	CameraComponent* camera = new CameraComponent();
-	app->cameraComponent = camera;
-	app->cameraID = cameraEntity;*/
 
 	app->set_up_opengl();
 	app->make_systems();

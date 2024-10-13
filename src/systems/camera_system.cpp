@@ -1,26 +1,47 @@
 #include "camera_system.hpp"
 
-CameraSystem::CameraSystem(unsigned int shader, GLFWwindow* window) 
-{
+CameraSystem::CameraSystem(
+    std::vector<unsigned int>& shaders, 
+    GLFWwindow* window, 
+    ComponentSet<TransformComponent>& transforms, 
+    ComponentSet<CameraComponent>& cameras):
+    shaders(shaders),
+    transforms(transforms),
+    cameras(cameras) {
     this->window = window;
 
+    unsigned int shader = shaders[0];
     glUseProgram(shader);
-    viewLocation = glGetUniformLocation(shader, "view");
+    forwardsLocation = glGetUniformLocation(shader, "forwards");
+    rightLocation = glGetUniformLocation(shader, "right");
+    upLocation = glGetUniformLocation(shader, "up");
+    for (size_t i = 1; i < 3; ++i) {
+        shader = shaders[i];
+        glUseProgram(shader);
+        viewLocation.push_back(glGetUniformLocation(shader, "view"));
+        posLocation.push_back(glGetUniformLocation(shader, "cameraPos"));
+    }
+
+    dy = 1.25f * glm::tan(3.14159f / 8.0f);
+    dx = dy * 640.0f / 480.0f;
 }
 
-bool CameraSystem::update(
-    std::unordered_map<unsigned int,TransformComponent> &transformComponents,
-    unsigned int cameraID, CameraComponent& cameraComponent, 
-    float dt) 
-{
-    glm::vec3& pos = transformComponents[cameraID].position;
-    glm::vec3& eulers = transformComponents[cameraID].eulers;
+
+//send all data about the camera to the appropriate shader
+bool CameraSystem::update(float dt) { 
+
+    CameraComponent& camera = cameras.components[0];
+    uint32_t cameraID = cameras.entities[0];
+
+    TransformComponent& transform = transforms.get_component(cameraID);
+    glm::vec3& pos = transform.position;
+    glm::vec3& eulers = transform.eulers;
     float theta = glm::radians(eulers.z);
     float phi = glm::radians(eulers.y);
 
-    glm::vec3& right = cameraComponent.right;
-    glm::vec3& up = cameraComponent.up;
-    glm::vec3& forwards = cameraComponent.forwards;
+    glm::vec3& right = camera.right;
+    glm::vec3& up = camera.up;
+    glm::vec3& forwards = camera.forwards;
 
     forwards = {
         glm::cos(theta) * glm::cos(phi),
@@ -32,7 +53,18 @@ bool CameraSystem::update(
 
     glm::mat4 view = glm::lookAt(pos, pos + forwards, up);
 
-    glUniformMatrix4fv(viewLocation, 1, GL_FALSE, glm::value_ptr(view));
+    // Sky shader 0
+    glUseProgram(shaders[0]); 
+    glUniform3fv(forwardsLocation, 1, glm::value_ptr(forwards));
+    glUniform3fv(rightLocation, 1, glm::value_ptr(dx * right));
+    glUniform3fv(upLocation, 1, glm::value_ptr(dy * up));
+    
+    glUseProgram(shaders[1]);
+    glUniformMatrix4fv(viewLocation[0], 1, GL_FALSE, glm::value_ptr(view));
+    glUniform3fv(posLocation[0], 1, glm::value_ptr(pos));
+    glUseProgram(shaders[2]);
+    glUniformMatrix4fv(viewLocation[1], 1, GL_FALSE, glm::value_ptr(view));
+    glUniform3fv(posLocation[1], 1, glm::value_ptr(pos));
 
     //Keys
     glm::vec3 dPos = {0.0f, 0.0f, 0.0f};
@@ -50,8 +82,8 @@ bool CameraSystem::update(
     }
     if (glm::length(dPos) > 0.1f) {
         dPos = glm::normalize(dPos);
-        pos += 0.1f * dPos.x * forwards;
-        pos += 0.1f * dPos.y * right;
+        pos += 1.0f * dt * dPos.x * forwards;
+        pos += 1.0f * dt * dPos.y * right;
     }
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -65,8 +97,8 @@ bool CameraSystem::update(
     glfwSetCursorPos(window, 320.0, 240.0);
     glfwPollEvents();
 
-    dEulers.z = -0.01f * static_cast<float>(mouse_x - 320.0);
-    dEulers.y = -0.01f * static_cast<float>(mouse_y - 240.0);
+    dEulers.z = -0.1f * static_cast<float>(mouse_x - 320.0);
+    dEulers.y = -0.1f * static_cast<float>(mouse_y - 240.0);
 
     eulers.y = fminf(89.0f, fmaxf(-89.0f, eulers.y + dEulers.y));
 

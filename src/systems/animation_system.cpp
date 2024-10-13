@@ -1,11 +1,13 @@
 #include "animation_system.hpp"
 
+AnimationSystem::AnimationSystem(ComponentSet<AnimationComponent>& animations):animations(animations)
+{
 
-void AnimationSystem::update(
-    std::unordered_map<unsigned int, AnimationComponent>& animationComponents,
-    float frameTime) 
-{    
-    for (auto& [entity, animation] : animationComponents) {
+}
+
+void AnimationSystem::update(float frameTime) {
+    
+    for (AnimationComponent& animation : animations.components) {
         animation.frame += animation.speed * frameTime / 16.667f;
 
         if (animation.frame >= animation.frameCount) {

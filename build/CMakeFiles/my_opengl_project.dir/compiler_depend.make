@@ -889,10 +889,10 @@ CMakeFiles/my_opengl_project.dir/src/controller/app.cpp.o: ../src/controller/app
   ../src/components/render_component.hpp \
   ../src/components/transform_component.hpp \
   ../src/components/animation_component.hpp \
+  ../src/components/component_set.hpp \
   ../src/systems/camera_system.hpp \
   ../src/systems/motion_system.hpp \
   ../src/systems/render_system.hpp \
-  ../src/factories/mesh_factory.hpp \
   ../src/systems/animation_system.hpp \
   ../src/view/shader.hpp
 
@@ -1338,7 +1338,8 @@ CMakeFiles/my_opengl_project.dir/src/factories/factory.cpp.o: ../src/factories/f
   ../src/components/physics_component.hpp \
   ../src/components/render_component.hpp \
   ../src/components/transform_component.hpp \
-  ../src/components/animation_component.hpp
+  ../src/components/animation_component.hpp \
+  ../src/components/component_set.hpp
 
 CMakeFiles/my_opengl_project.dir/src/factories/mesh_factory.cpp.o: ../src/factories/mesh_factory.cpp \
   /usr/include/stdc-predef.h \
@@ -2666,10 +2667,10 @@ CMakeFiles/my_opengl_project.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/components/render_component.hpp \
   ../src/components/transform_component.hpp \
   ../src/components/animation_component.hpp \
+  ../src/components/component_set.hpp \
   ../src/systems/camera_system.hpp \
   ../src/systems/motion_system.hpp \
   ../src/systems/render_system.hpp \
-  ../src/factories/mesh_factory.hpp \
   ../src/systems/animation_system.hpp \
   ../src/view/shader.hpp \
   ../src/factories/factory.hpp
@@ -3112,7 +3113,8 @@ CMakeFiles/my_opengl_project.dir/src/systems/animation_system.cpp.o: ../src/syst
   /usr/include/c++/11/bits/node_handle.h \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
-  ../src/components/animation_component.hpp
+  ../src/components/animation_component.hpp \
+  ../src/components/component_set.hpp
 
 CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o: ../src/systems/camera_system.cpp \
   /usr/include/stdc-predef.h \
@@ -3553,7 +3555,8 @@ CMakeFiles/my_opengl_project.dir/src/systems/camera_system.cpp.o: ../src/systems
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
   ../src/components/camera_component.hpp \
-  ../src/components/transform_component.hpp
+  ../src/components/transform_component.hpp \
+  ../src/components/component_set.hpp
 
 CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o: ../src/systems/motion_system.cpp \
   /usr/include/stdc-predef.h \
@@ -3994,7 +3997,8 @@ CMakeFiles/my_opengl_project.dir/src/systems/motion_system.cpp.o: ../src/systems
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/erase_if.h \
   ../src/components/transform_component.hpp \
-  ../src/components/physics_component.hpp
+  ../src/components/physics_component.hpp \
+  ../src/components/component_set.hpp
 
 CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o: ../src/systems/render_system.cpp \
   /usr/include/stdc-predef.h \
@@ -4437,6 +4441,7 @@ CMakeFiles/my_opengl_project.dir/src/systems/render_system.cpp.o: ../src/systems
   ../src/components/transform_component.hpp \
   ../src/components/render_component.hpp \
   ../src/components/animation_component.hpp \
+  ../src/components/component_set.hpp \
   ../src/factories/mesh_factory.hpp \
   ../src/factories/texture_factory.hpp
 
@@ -4889,6 +4894,8 @@ CMakeFiles/my_opengl_project.dir/src/view/shader.cpp.o: ../src/view/shader.cpp \
 ../src/factories/factory.hpp:
 
 ../src/factories/factory.cpp:
+
+../src/components/component_set.hpp:
 
 ../src/components/animation_component.hpp:
 

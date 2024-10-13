@@ -2,67 +2,93 @@
 #include "../factories/mesh_factory.hpp"
 #include "../factories/texture_factory.hpp"
 
-RenderSystem::RenderSystem(unsigned int shader, GLFWwindow* window) 
+RenderSystem::RenderSystem(std::vector<unsigned int>& shaders, GLFWwindow* window, 
+    ComponentSet<TransformComponent> &transforms,
+    ComponentSet<RenderComponent> &renderables,
+    ComponentSet<AnimationComponent> &animations)
+    :
+    shaders(shaders),
+    transforms(transforms),
+    renderables(renderables),
+    animations(animations) 
 {    
-    modelLocation = glGetUniformLocation(shader, "model");
     this->window = window;
+
     textures.resize(2);
-
+    VAOs.resize(2);
+    VBOs.resize(2);
+    EBOs.resize(2);
+    build_sky();
     build_models();
-
     build_geometry();
+
+    glUseProgram(shaders[0]);
+    glUniform1i(glGetUniformLocation(shaders[0], "sky"), 1);
+    glUseProgram(shaders[1]);
+    glUniform1i(glGetUniformLocation(shaders[1], "materials"), 0);
+    glUniform1i(glGetUniformLocation(shaders[1], "sky"), 1);
+    glUseProgram(shaders[2]);
+    glUniform1i(glGetUniformLocation(shaders[2], "materials"), 0);
+    glUniform1i(glGetUniformLocation(shaders[2], "sky"), 1);
+    modelLocation = glGetUniformLocation(shaders[2], "model");   
 }
 
-RenderSystem::~RenderSystem() {
-    for (auto& [objectType, animations] : VAOs) {
-        for (auto& [animation, VAO] : animations) {
-            glDeleteVertexArrays(1, &VAO);
-        }
-    }
+RenderSystem::~RenderSystem() 
+{
+    glDeleteVertexArrays(VAOs.size(), VAOs.data());
 
-    for (auto& [objectType, animations] : VBOs) {
-        for (auto& [animation, VBO] : animations) {
-            glDeleteBuffers(1, &VBO);
-        }
-    }
+    glDeleteBuffers(VBOs.size(), VBOs.data());
+
+    glDeleteBuffers(EBOs.size(), EBOs.data());
 
     glDeleteTextures(textures.size(), textures.data());
 }
 
 
+void RenderSystem::build_sky() {
+
+    TextureFactory textureFactory;
+
+    skyTexture = textureFactory.build_cubemap({
+        "../img/sky_front.png",  //x+
+		"../img/sky_back.png",   //x-
+		"../img/sky_left.png",   //y+
+		"../img/sky_right.png",  //y-
+		"../img/sky_top.png",     //z+
+		"../img/sky_bottom.png",  //z-
+    });
+}
+
 void RenderSystem::build_models() 
 {
     MeshFactory meshFactory;
     TextureFactory textureFactory;
+    meshFactory.start_obj_mesh();
 
     //Cube
     ObjectType objectType = ObjectType::eBox;
     AnimationType animationType = AnimationType::eNone;
-
-    meshFactory.start_obj_mesh();
-    meshFactory.append_cube_mesh({0.25f, 0.25f, 0.25f}, 0); //layer 0
-    StaticMesh mesh = meshFactory.build_obj_mesh();
-    VAOs[objectType][animationType] = mesh.VAO;
-    VBOs[objectType][animationType] = mesh.VBO;
-    vertexCounts[objectType] = mesh.vertexCount;
-    //textures[objectType] = textureFactory.make_texture("../img/crate.png");
+    offsets[objectType][animationType] = meshFactory.offset;
+    
+    glm::mat4 preTransform = glm::mat4(1.0f);
+    preTransform = glm::scale(preTransform, {0.25f, 0.25f, 0.25f});
+    meshFactory.append_obj_mesh("../models/cube.obj", preTransform, 0); //layer 0
+    elementCounts[objectType] = meshFactory.elementCount;
+    meshFactory.elementCount = 0;
 
     //Girl
     objectType = ObjectType::eGirl;
     animationType = AnimationType::eNone;
-    glm::mat4 preTransform = glm::mat4(1.0);
+    offsets[objectType][animationType] = meshFactory.offset;
+
+    preTransform = glm::mat4(1.0);
     preTransform = glm::mat4(1.0f);
     preTransform = glm::rotate(preTransform, glm::radians(90.0f), { 1.0f, 0.0f, 0.00f });
     preTransform = glm::rotate(preTransform, glm::radians(90.0f), { 0.0f, 1.0f, 0.0f });
     preTransform = glm::translate(preTransform,{0.0f, 1.0f, -1.5f}); 
-
-    meshFactory.start_obj_mesh();
     meshFactory.append_obj_mesh("../models/girl.obj", preTransform, 1); //layer 1
-    mesh = meshFactory.build_obj_mesh();
-    VAOs[objectType][animationType] = mesh.VAO;
-    VBOs[objectType][animationType] = mesh.VBO;
-    vertexCounts[objectType] = mesh.vertexCount;
-    //textures[objectType] = textureFactory.make_texture("../img/stargirl.png");
+    elementCounts[objectType] = meshFactory.elementCount;
+    meshFactory.elementCount = 0;
 
     //Revy
     objectType = ObjectType::eRevy;
@@ -70,9 +96,8 @@ void RenderSystem::build_models()
     preTransform = glm::mat4(1.0f);
     preTransform = glm::translate(preTransform,{0.0f, 0.0f, -0.25f}); 
 	preTransform = glm::rotate(preTransform, glm::radians(-90.0f), { 0.0f, 0.0f, 1.0f });
-
-    meshFactory.start_obj_mesh();
-    //textures[objectType] = textureFactory.make_texture("../img/Revy_Final.png");
+    offsets[objectType][animationType] = meshFactory.offset;
+ 
     std::stringstream filepath;
     std::string built_filepath;	
     for(size_t i = 0; i <19; ++i)
@@ -85,16 +110,22 @@ void RenderSystem::build_models()
         }
         filepath <<i <<".obj";
         built_filepath = filepath.str();
-        meshFactory.append_obj_mesh(built_filepath.c_str(), preTransform, 2); //layer 1
+        meshFactory.append_obj_mesh(built_filepath.c_str(), preTransform, 2); //layer 2
 
+        if (i == 0) 
+        {
+            elementCounts[objectType] = meshFactory.elementCount;
+            meshFactory.elementCount = 0;
+        }
     }
-    mesh = meshFactory.build_obj_mesh();
-    VAOs[objectType][animationType] = mesh.VAO;
-    VBOs[objectType][animationType] = mesh.VBO;
-    vertexCounts[objectType] = mesh.vertexCount / 19;
+
+    StaticMesh mesh = meshFactory.build_obj_mesh();
+    VAOs[1] = mesh.VAO;
+    VBOs[1] = mesh.VBO;
+    EBOs[1] = mesh.EBO;
 
     textureFactory.start_texture_array(3);
-    textureFactory.load_into_array("../img/crate.png", 0);
+    textureFactory.load_into_array("../img/paper.jpg", 0);
     textureFactory.load_into_array("../img/stargirl.png", 1);
     textureFactory.load_into_array("../img/Revy_Final.png", 2);
     textures[1] = textureFactory.finalize_texture_array();
@@ -157,12 +188,12 @@ void RenderSystem::build_geometry()
     preTransform = glm::translate(preTransform, {-2.0f, 1.0f, 0.0f});
     meshFactory.append_obj_mesh("../models/tree.obj", preTransform, 3);
 
+    elementCounts[objectType] = meshFactory.elementCount;
     StaticMesh mesh = meshFactory.build_obj_mesh();
-    VAOs[objectType][animationType] = mesh.VAO;
-    VBOs[objectType][animationType] = mesh.VBO;
-    vertexCounts[objectType] = mesh.vertexCount;
+    VAOs[0] = mesh.VAO;
+    VBOs[0] = mesh.VBO;
+    EBOs[0] = mesh.EBO;
 
-    //textures[objectType] = textureFactory.make_texture("../img/paper.jpg");
     textureFactory.start_texture_array(4);
     textureFactory.load_into_array("../img/GrassAndDirt_S.jpg", 0);
     textureFactory.load_into_array("../img/red_brick.jpg", 1);
@@ -172,40 +203,53 @@ void RenderSystem::build_geometry()
 }
 
 
-void RenderSystem::update(
-    std::unordered_map<unsigned int,TransformComponent> &transformComponents,
-    std::unordered_map<unsigned int,RenderComponent> &renderComponents,
-    std::unordered_map<unsigned int,AnimationComponent> &animationComponents) 
-{
-    
+void RenderSystem::update() 
+{ 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clear frame
 
-    //static geometry
-    glm::mat4 model = glm::mat4(1.0f);
-    glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-    glBindTexture(GL_TEXTURE_2D_ARRAY, textures[0]); //0=geometry
-    glBindVertexArray(VAOs[ObjectType::eGeometry][AnimationType::eNone]);
-    glDrawArrays(GL_TRIANGLES, 0, vertexCounts[ObjectType::eGeometry]);
+    //Sky
+    glUseProgram(shaders[0]); 
+    glDisable(GL_DEPTH_TEST); //for no interfere with anything else objects
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, skyTexture);
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+    glEnable(GL_DEPTH_TEST);
+    // not binding VAO cause hard coded in the Vert Shader
 
-    //other objects
-    glBindTexture(GL_TEXTURE_2D_ARRAY, textures[1]); //1=cube, girl, Ravy
-    for (auto& [entity,renderable] : renderComponents)
+    //Static geometry
+    glUseProgram(shaders[1]); 
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D_ARRAY, textures[0]);
+    glBindVertexArray(VAOs[0]);
+    glDrawElements(GL_TRIANGLES, elementCounts[ObjectType::eGeometry], GL_UNSIGNED_INT, 0);
+
+    //Everything else
+    glUseProgram(shaders[2]);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D_ARRAY, textures[1]);
+    glBindVertexArray(VAOs[1]);
+    for (size_t i = 0; i < renderables.entities.size(); ++i) 
     {
-        TransformComponent& transform = transformComponents[entity];
+        uint32_t entity = renderables.entities[i];
+        RenderComponent& renderable = renderables.components[i];
+        TransformComponent& transform = transforms.get_component(entity);
+
         glm::mat4 model = glm::mat4(1.0f);
 	    model = glm::translate(model, transform.position);
 	    model = glm::rotate(model, glm::radians(transform.eulers.z), { 0.0f, 0.0f, 1.0f });
         glUniformMatrix4fv(modelLocation, 1, GL_FALSE, glm::value_ptr(model));
-        
-        unsigned int vertexCount = vertexCounts[renderable.objectType];
+        unsigned int elementCount = elementCounts[renderable.objectType];
         size_t frame = 0;
-        if (renderable.animationType != AnimationType::eNone)
-        {
-            frame = static_cast<size_t>(animationComponents[entity].frame);
+        if (renderable.animationType != AnimationType::eNone) {
+            AnimationComponent& animation = 
+                animations.get_component(entity);
+            frame = static_cast<size_t>(animation.frame);
         }
-
-        glBindVertexArray(VAOs[renderable.objectType][renderable.animationType]);
-        glDrawArrays(GL_TRIANGLES, frame * vertexCount, vertexCount);
+        unsigned int offset = 
+            sizeof(unsigned int) * (
+                offsets[renderable.objectType][renderable.animationType] + frame * elementCount);
+        
+        glDrawElements(GL_TRIANGLES, elementCount, GL_UNSIGNED_INT, (void*)(offset));
     }
     
 	glfwSwapBuffers(window);

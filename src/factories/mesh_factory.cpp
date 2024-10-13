@@ -8,18 +8,80 @@ void MeshFactory::start_obj_mesh()
     vt.clear();
     vn.clear();
     vertices.clear();
+    indices.clear();
     v_loaded = 0;
     vt_loaded = 0;
     vn_loaded = 0;
-    //current_layer = 0;
+    last_index = 0;
+    last_index_current = 0;
+    elementCount = 0;
+    offset = 0;
 }
 
+void MeshFactory::append_obj_mesh(const char* filename, glm::mat4 preTransform, float layer) 
+{
+    current_layer = layer;
+    history.clear();
+    this->preTransform = preTransform;
+
+    reserve_space(filename);
+
+    read_file(filename);
+
+    last_index = last_index_current + 1;
+
+    v_loaded = v.size(); 
+    vt_loaded = vt.size(); 
+    vn_loaded = vn.size();
+    offset = indices.size();
+}
+
+StaticMesh MeshFactory::build_obj_mesh()
+{
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    unsigned int VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+
+    //position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 36, (void*)0); 
+    glEnableVertexAttribArray(0);
+    //texture coordinates
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 36, (void*)12);
+    glEnableVertexAttribArray(1);
+    //normal
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 36, (void*)24);
+    glEnableVertexAttribArray(2);
+    //36 = 3 * 3 * 3 -> 9 floats = 36bytes(9*4)
+
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+
+    StaticMesh mesh;
+    mesh.VAO = VAO;
+    mesh.VBO = VBO;
+    mesh.EBO = EBO;
+    v.clear();
+    vt.clear();
+    vn.clear();
+    vertices.clear();
+    indices.clear();
+
+    return mesh;    
+}
 void MeshFactory::reserve_space(const char* filename)
 {
     size_t vertexCount = v.size();
     size_t texcoordCount = vt.size();
     size_t normalCount = vn.size();
     size_t dataCount = vertices.size();
+    size_t indexCount = indices.size();
 
     std::string line;
     std::vector<std::string> words;
@@ -53,6 +115,8 @@ void MeshFactory::reserve_space(const char* filename)
             dataCount += 3 * 9 * (words.size() -3);
             //3 corners per triangle, 8 floats per corner
             // 9 cause add texture Layer
+
+            indexCount += 3 * (words.size() - 3);
         }
     }
     file.close();
@@ -61,6 +125,7 @@ void MeshFactory::reserve_space(const char* filename)
     vt.reserve(texcoordCount);
     vn.reserve(normalCount);
     vertices.reserve(dataCount);
+    indices.reserve(indexCount);
 }
 
 void MeshFactory::read_file(const char* filename)
@@ -84,7 +149,7 @@ void MeshFactory::read_file(const char* filename)
         }
 
         else if (!words[0].compare("vn")) {
-            vn.push_back(read_vec3(words, 0.0f));
+            vn.push_back(glm::normalize(read_vec3(words, 0.0f)));
         }
 
         else if (!words[0].compare("f")) {
@@ -120,6 +185,21 @@ void MeshFactory::read_face(std::vector<std::string> words)
 
 void MeshFactory::read_corner(std::string description) 
 {    
+    ++elementCount;
+    if (history.count(description)) //c++20 history.contains(description)
+    {
+		indices.push_back(history[description]);
+		return;
+	}
+
+	unsigned int index = history.size() + last_index;
+	history[description] = index;
+	indices.push_back(index);
+    if (index > last_index_current) 
+    {
+        last_index_current = index;
+    }
+
     std::vector<std::string> v_vt_vn = split(description, "/");
 
     //position
@@ -142,38 +222,7 @@ void MeshFactory::read_corner(std::string description)
 
 }
 
-StaticMesh MeshFactory::build_obj_mesh()
-{
-    unsigned int VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
 
-    unsigned int VBO;
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
-
-    //position
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 36, (void*)0); 
-    glEnableVertexAttribArray(0);
-    //texture coordinates
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 36, (void*)12);
-    glEnableVertexAttribArray(1);
-    //normal
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 36, (void*)24);
-    glEnableVertexAttribArray(2);
-    //36 = 3 * 3 * 3 -> 9 floats = 36bytes(9*4)
-
-    StaticMesh mesh;
-    mesh.VAO = VAO;
-    mesh.vertexCount = vertices.size() / 9;
-    mesh.VBO = VBO;
-    v.clear();
-    vt.clear();
-    vn.clear();
-    vertices.clear();
-    return mesh;    
-}
 
 void MeshFactory::append_cube_mesh(glm::vec3 size, float layer) 
 {
@@ -228,17 +277,5 @@ void MeshFactory::append_cube_mesh(glm::vec3 size, float layer)
 }
 
 
-void MeshFactory::append_obj_mesh(const char* filename, glm::mat4 preTransform, float layer) 
-{
-    this->preTransform = preTransform;
-    current_layer = layer;
 
-    reserve_space(filename);
-
-    read_file(filename);
-
-    v_loaded = v.size(); 
-    vt_loaded = vt.size(); 
-    vn_loaded = vn.size();
-}
 
